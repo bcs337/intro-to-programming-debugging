@@ -9,27 +9,23 @@
   </head>
   <body>
     <main>
-      <!-- Game title and instructions -->
       <h1>Guessing Game</h1>
       <p>
         I'm thinking of a number from 1 to 100! Can you guess it in 5 tries or
         less?
       </p>
       
-      <!-- Form for submitting guesses -->
       <form id="guess-form">
         <input type="number" id="guess" min="1" max="100" />
         <button type="submit" id="submit">Submit Guess</button>
       </form>
       
-      <!-- Messages section - should be hidden initially -->
       <div id="messages">
         <p class="message" id="guess-display"></p>
         <p class="message" id="guesses-remaining"></p>
         <p class="message" id="feedback"></p>
       </div>
       
-      <!-- Reset button - should be hidden initially -->
       <button id="reset" style="display: none;">Reset</button>
     </main>
     <script src="index.js"></script>
