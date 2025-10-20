@@ -1,15 +1,160 @@
-main {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fb;
+  color: #222;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Center the game UI */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto;
+  padding: 24px;
+  max-width: 640px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(19, 31, 50, 0.06);
+}
+
+/* Title and instructions */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+p {
+  margin-bottom: 16px;
+  color: #374151;
+}
+
+/* Form layout */
+form#guess-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Number input */
 #guess {
-  width: 5em;
+  width: 6.5rem;         /* a little wider for readability */
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Buttons */
+button {
+  padding: 9px 14px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#submit {
+  background: #2563eb; /* blue */
+  color: white;
+  border-color: rgba(37,99,235,0.9);
+}
+
+#submit:hover:not(:disabled) {
+  background: #1e56d6;
 }
 
 #reset {
-  margin: 20px;
+  background: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  margin-top: 12px;
+}
+
+/* Hide messages and reset by default (setup() will also manage this) */
+#messages {
+  display: none;
+  margin-top: 16px;
+  width: 100%;
+}
+
+#reset {
+  display: none;
+}
+
+/* Message styles */
+.message {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Specific message appearances (optional colors) */
+#guess-display {
+  background: #eef2ff;   /* soft blue */
+  color: #1e3a8a;
+  border: 1px solid #c7d2fe;
+}
+
+#guesses-remaining {
+  background: #fff7ed;   /* soft amber */
+  color: #92400e;
+  border: 1px solid #ffedd5;
+}
+
+#feedback {
+  background: #ecfdf5;   /* soft green */
+  color: #065f46;
+  border: 1px solid #bbf7d0;
+}
+
+/* Error / losing state style (if you want to change when user loses) */
+.message.error {
+  background: #fff1f2;
+  color: #9f1239;
+  border: 1px solid #fecaca;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  main {
+    margin: 20px;
+    padding: 16px;
+  }
+
+  form#guess-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #guess {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+  }
 }
